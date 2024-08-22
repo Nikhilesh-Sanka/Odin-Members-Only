@@ -13,7 +13,8 @@ const becomeMemberRouter = require("./routes/becomeMemberRoute.js");
 const becomeAdminRouter = require("./routes/becomeAdminRoute.js");
 const createMessageRouter = require("./routes/createMessageRoute.js");
 
-const deleteMessageController = require("./controllers/deleteMessageController");
+const deleteMessageController = require("./controllers/deleteMessageController.js");
+const signUpController = require("./controllers/signUpController.js");
 
 const app = express();
 
@@ -70,7 +71,17 @@ passport.deserializeUser(async (userId, done) => {
 
 // Routing the server//
 app.use("/", indexRouter);
-app.use("/sign-up", signUpRouter);
+app.get("/sign-up", (req, res) => {
+  res.render("sign-up");
+});
+app.post(
+  "/sign-up",
+  signUpController,
+  passport.authenticate("local", {
+    successRedirect: "/",
+    failureRedirect: "/fuck",
+  })
+);
 app.get("/log-in", (req, res) => {
   let isFailure = req.query["isFailure"] === "true" ? true : false;
   res.render("log-in", { isFailure });

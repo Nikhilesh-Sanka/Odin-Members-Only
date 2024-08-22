@@ -7,6 +7,5 @@ const router = new Router();
 router.get("/", (req, res) => {
   res.render("sign-up");
 });
-router.post("/", signUpController);
 
 module.exports = router;

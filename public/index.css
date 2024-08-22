@@ -37,6 +37,7 @@ nav {
 .messages > div > p {
   word-wrap: break-word;
   word-break: break-all;
+  text-align: center;
 }
 
 .messages > div {
@@ -46,9 +47,11 @@ nav {
   margin: 10px auto;
   padding: 10px;
   box-sizing: border-box;
+  min-height: 70px;
 }
 .guest-message {
   display: grid;
+  place-items: center;
 }
 .member-message {
   display: grid;

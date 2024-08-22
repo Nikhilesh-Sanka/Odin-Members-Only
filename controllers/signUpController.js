@@ -48,7 +48,7 @@ const validateInputs = [
 
 const signUpController = [
   validateInputs,
-  async (req, res) => {
+  async (req, res, next) => {
     let errors = validationResult(req).errors;
     let firstName = req.body["first-name"];
     let lastName = req.body["last-name"];
@@ -71,7 +71,7 @@ const signUpController = [
         isMember,
         isAdmin
       );
-      res.redirect("/");
+      next();
     } else {
       res.render("sign-up", {
         errors,
