@@ -1,0 +1,15 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+h1 {
+  text-align: center;
+  margin: 50px 0;
+}
+form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(6, 60px);
+  width: min(400px, calc(100% - 20px));
+  margin: 40px auto;
+}
