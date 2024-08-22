@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Become Member</title>
+    <link rel="stylesheet" href="/static/become-member.css" />
+  </head>
+  <body>
+    <%-include("header")%>
+    <h1>Become a Member !!!!</h1>
+    <form action="/become-member" method="POST">
+      <label>Secret Password:<br /><input name="code" /></label>
+      <button>Submit</button>
+    </form>
+    <%if(locals.isFailure){%>
+    <div class="errors">
+      <p>please enter valid admin code</p>
+    </div>
+    <%}%>
+  </body>
+</html>

@@ -1,0 +1,49 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+h1 {
+  text-align: center;
+  margin: 50px 0;
+}
+form {
+  width: min(400px, calc(100% - 20px));
+  margin: 40px auto;
+}
+form > * {
+  display: block;
+}
+form label {
+  text-align: center;
+  font-size: 1.2rem;
+  margin: 10px 0;
+}
+form textarea {
+  width: 100%;
+  height: 100px;
+}
+form button {
+  width: 80px;
+  height: 35px;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  margin: 40px auto;
+}
+.errors {
+  width: min(400px, calc(100% - 20px));
+  background-color: red;
+  padding: 10px;
+  border-radius: 5px;
+  box-sizing: border-box;
+  margin: 30px auto;
+}
+.errors p {
+  text-align: center;
+}
+@media (max-width: 330px) {
+  header {
+    display: none;
+  }
+}

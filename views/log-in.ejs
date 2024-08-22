@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Log in</title>
+    <link rel="stylesheet" href="/static/log-in.css" />
+  </head>
+  <body>
+    <%-include('header')%>
+    <h1>Log in</h1>
+    <form action="/log-in" method="POST">
+      <label>Username:<br /><input name="username" /></label>
+      <label>Password:<br /><input name="password" type="password" /></label>
+      <button>Submit</button>
+    </form>
+    <%if(locals.isFailure){%>
+    <div class="errors">
+      <p>Please enter valid username and password</p>
+    </div>
+    <%}%>
+  </body>
+</html>

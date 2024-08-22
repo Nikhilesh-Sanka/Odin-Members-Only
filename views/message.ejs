@@ -1,0 +1,36 @@
+<% if(locals.user["is_admin"]==='false'&&locals.user["is_member"]==='false'){%>
+<div
+  class="guest-message <%=locals.user.id===locals.message.user_id?`user-message`:``%>"
+>
+  <p><%=locals.message.message%></p>
+</div>
+<%}%> <%
+if(locals.user["is_admin"]==='false'&&locals.user["is_member"]==='true'){%>
+<div
+  class="member-message <%=locals.user.id===locals.message.user_id?`user-message`:``%>"
+>
+  <p>Date: <%=locals.message.date%></p>
+  <p>
+    Author:
+    <%=locals.message.username.slice(0,1).toUpperCase()+locals.message.username.slice(1,)%>
+  </p>
+  <p><%=locals.message.message%></p>
+</div>
+<%}%> <%
+if(locals.user["is_admin"]==='true'&&locals.user["is_member"]==='true'){%>
+<div
+  class="admin-message <%=locals.user.id===locals.message.user_id?`user-message`:``%>"
+>
+  <p>Date: <%=locals.message.date%></p>
+  <p>
+    Author:
+    <%=locals.message.username.slice(0,1).toUpperCase()+locals.message.username.slice(1,)%>
+  </p>
+  <p><%=locals.message.message%></p>
+  <a
+    href="/deleteMessage?messageId=<%=locals.message.id%>"
+    class="delete-btn-anchor"
+    ><button class="delete-btn">Delete</button></a
+  >
+</div>
+<%}%>

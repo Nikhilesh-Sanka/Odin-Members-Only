@@ -9,18 +9,49 @@
   <body>
     <%- include("header") %>
     <h1>Sign up</h1>
-    <form>
-      <label>First Name:<br /><input name="first-name" /></label>
-      <label>Last Name:<br /><input name="last-name" /></label>
-      <label>User Name:<br /><input name="username" /></label>
-      <label>Password:<br /><input name="password" /></label>
-      <label>Confirm Password<br /><input name="confirm-password" /></label>
+    <form action="/sign-up" method="POST">
+      <label
+        >First Name:<br /><input
+          name="first-name"
+          value="<%=locals.firstName!==undefined?locals.firstName:''%>"
+      /></label>
+      <label
+        >Last Name:<br /><input
+          name="last-name"
+          value="<%=locals.lastName!==undefined?locals.lastName:''%>"
+      /></label>
+      <label
+        >User Name:<br /><input
+          name="username"
+          value="<%=locals.userName!==undefined?locals.userName:''%>"
+      /></label>
+      <label
+        >Password:<br /><input
+          type="password"
+          name="password"
+          value="<%=locals.password!==undefined?locals.password:''%>"
+      /></label>
+      <label
+        >Confirm Password:<br /><input
+          type="password"
+          name="confirm-password"
+          value="<%=locals.password!==undefined?locals.password:''%>"
+      /></label>
       <label
         >Member or Admin Code:<br /><input
-          name="member-code"
+          name="status-code"
           placeholder="(optional)"
       /></label>
       <button>Submit</button>
     </form>
+    <% if(locals.errors) {%>
+    <div class="errors">
+      <ul>
+        <% for(let error of locals.errors){%>
+        <li><%=error.msg%></li>
+        <%}%>
+      </ul>
+    </div>
+    <%}%>
   </body>
 </html>

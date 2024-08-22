@@ -7,10 +7,31 @@
     <link rel="stylesheet" href="/static/index.css" />
   </head>
   <body>
-    <%-include("header")%>
+    <%-include("header")%> <% if(!locals.user){%>
     <h1>Welcome !!!</h1>
     <div class="links">
       <p><a href="/sign-up">Sign up</a>/<a href="/log-in">Log in</a></p>
     </div>
+    <%}%> <% if(locals.user) {%>
+    <nav>
+      <p>
+        <%if(locals.user["is_member"]==='false'){%>
+        <a href="/become-member">Become member</a>
+        <span>/</span>
+        <%}%> <%if(locals.user["is_admin"]==='false'){%>
+        <a href="/become-admin">Become admin</a>
+        <span>/</span>
+        <%}%>
+        <a href="/log-out">Log out</a>
+      </p>
+    </nav>
+    <a href="/create-message" class="btn-anchor"
+      ><button class="btn">Create Message</button></a
+    >
+    <div class="messages">
+      <%for(let message of locals.messages){%>
+      <%-include('message',{message,user:locals.user})%> <%}%>
+    </div>
+    <%}%>
   </body>
 </html>

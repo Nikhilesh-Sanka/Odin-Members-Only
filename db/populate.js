@@ -9,15 +9,17 @@ const client = new Client({
 const SQL = `
     CREATE TABLE IF NOT EXISTS users (
         id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-        name VARCHAR ( 255 ),
+        first_name VARCHAR( 255 ),
+        last_name VARCHAR( 255 ),
+        username VARCHAR ( 255 ),
         password VARCHAR ( 255 ),
-        is_member BOOLEAN,
-        is_admin BOOLEAN
+        is_member TEXT,
+        is_admin TEXT
     );
     CREATE TABLE IF NOT EXISTS messages (
         id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
         message TEXT,
-        date DATE,
+        date TEXT,
         user_id INTEGER
     );
 `;
