@@ -7,6 +7,8 @@ const session = require("express-session");
 const pool = require("./db/pool.js");
 const bcrypt = require("bcryptjs");
 
+require("dotenv").config();
+
 const indexRouter = require("./routes/indexRoute.js");
 const signUpRouter = require("./routes/signUpRoute.js");
 const becomeMemberRouter = require("./routes/becomeMemberRoute.js");
@@ -106,6 +108,6 @@ app.get("/deleteMessage", deleteMessageController);
 
 // Routing the server //
 
-app.listen(3000);
+app.listen(process.env.PORT);
 
 module.exports = {};
